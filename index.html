@@ -608,6 +608,146 @@
     line-height: 1.6;
   }
 
+  /* ── TOOLKIT PANEL ── */
+  .toolkit-panel {
+    margin-top: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .toolkit-panel-header {
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+  }
+  .toolkit-panel-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+  .toolkit-panel-intro {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .toolkit-panel-intro strong { color: #F5F5F5; }
+  .toolkit-what {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toolkit-what-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: rgba(201,168,76,0.65);
+    margin-bottom: 0.75rem;
+  }
+  .toolkit-contents {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .toolkit-contents li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .toolkit-contents li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+  .toolkit-contents li strong { color: #F5F5F5; }
+  .toolkit-options {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .toolkit-option {
+    flex: 1;
+    min-width: 220px;
+    padding: 1.1rem 1.25rem;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toolkit-option:last-child { border-right: none; }
+  .toolkit-option-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+  }
+  .toolkit-option-price {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    color: #F5F5F5;
+    line-height: 1;
+  }
+  .toolkit-option-price span {
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.2rem;
+  }
+  .toolkit-option-includes {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .toolkit-option-includes strong { color: #F5F5F5; }
+  .toolkit-option-note {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(201,168,76,0.6);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .toolkit-buy-btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    border-radius: 1px;
+    margin-top: auto;
+  }
+  .toolkit-buy-btn:hover { background: var(--gold-light); }
+  .toolkit-buy-btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .toolkit-buy-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .toolkit-honest-note {
+    padding: 0.9rem 1.25rem;
+    border-top: 1px solid var(--border);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    color: rgba(245,245,245,0.4);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
   /* ── FOOTER ── */
   footer {
     max-width: 600px;
@@ -885,6 +1025,72 @@ function prevQ() {
 }
 
 /* ═══════════════════════════
+   TOOLKIT PANEL BUILDER
+   Honest, transparent side-by-side
+   of both options — no hidden upsell
+═══════════════════════════ */
+function buildToolkitPanel(band) {
+  var introText = {
+    low:  'This toolkit is not a crisis resource — it is a <strong>structured framework</strong> for fathers and partners who want to understand what is happening and get ahead of it before it escalates.',
+    mid:  'This toolkit is built specifically for this score range. It gives <strong>structured support for the next 90 days</strong> — not generic mental health content, but a framework written for paternal PPD.',
+    high: 'This toolkit was built for exactly this score. It does not replace your GP. It works alongside clinical support — giving <strong>a structured daily framework</strong> for the 90 days ahead.'
+  }[band];
+
+  return '' +
+    '<div class="toolkit-panel">' +
+
+      '<div class="toolkit-panel-header">' +
+        '<div class="toolkit-panel-label">THE 90-DAY PATERNAL PPD RECOVERY TOOLKIT</div>' +
+        '<p class="toolkit-panel-intro">' + introText + '</p>' +
+      '</div>' +
+
+      '<div class="toolkit-what">' +
+        '<div class="toolkit-what-title">WHAT IS INSIDE</div>' +
+        '<ul class="toolkit-contents">' +
+          '<li><strong>Section 1 — Understanding It:</strong> The clinical picture of paternal PPD explained plainly, with NHS-cited context</li>' +
+          '<li><strong>Section 2 — The 90-Day Framework:</strong> A week-by-week structure for recovery, not generic advice</li>' +
+          '<li><strong>Section 3 — The Partner Guide:</strong> How the people closest to him can help without making it worse</li>' +
+          '<li><strong>Section 4 — GP Preparation:</strong> Scripts and language for the clinical conversation most fathers dread</li>' +
+          '<li><strong>Section 5 — Progress Tracking:</strong> A simple weekly check-in system built around the Gotland scale</li>' +
+        '</ul>' +
+      '</div>' +
+
+      '<div class="toolkit-options">' +
+
+        '<div class="toolkit-option">' +
+          '<div class="toolkit-option-name">DIGITAL EDITION</div>' +
+          '<div class="toolkit-option-price">&pound;97 <span>One-time. No subscription.</span></div>' +
+          '<div class="toolkit-option-includes">' +
+            'Full five-section toolkit as an interactive digital resource. ' +
+            'Access immediately after purchase. ' +
+            '<strong>Retake this assessment at any time — your score tracked against your progress.</strong>' +
+          '</div>' +
+          '<div class="toolkit-option-note">This is the complete toolkit. Nothing is held back in the print edition.</div>' +
+          '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/dd7e3029-babe-4365-87ec-953b82d28f16" class="toolkit-buy-btn">Get Digital Edition &mdash; &pound;97 &rarr;</a>' +
+        '</div>' +
+
+        '<div class="toolkit-option">' +
+          '<div class="toolkit-option-name">PRINT + DIGITAL EDITION</div>' +
+          '<div class="toolkit-option-price">&pound;117 <span>One-time. No subscription.</span></div>' +
+          '<div class="toolkit-option-includes">' +
+            'Everything in the digital edition, plus a <strong>printed copy sent to your address.</strong> ' +
+            'Some people find a physical resource easier to engage with. ' +
+            'Includes one free assessment retake to track progress.' +
+          '</div>' +
+          '<div class="toolkit-option-note">The print edition costs more because it costs more to produce. That is the only reason.</div>' +
+          '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/b91d62b2-f492-4003-b9db-523506fa6e90" class="toolkit-buy-btn secondary">Get Print + Digital &mdash; &pound;117 &rarr;</a>' +
+        '</div>' +
+
+      '</div>' +
+
+      '<div class="toolkit-honest-note">' +
+        'Both options contain identical content. The difference is format only. There is no premium tier, no upsell after purchase, and no subscription. If you are not sure, start with the free 7 Signs guide below.' +
+      '</div>' +
+
+    '</div>';
+}
+
+/* ═══════════════════════════
    RESULTS — immediate, no email wall
 ═══════════════════════════ */
 function showResults() {
@@ -920,9 +1126,8 @@ function showResults() {
       '<div class="action-item"><span class="action-num">02</span><span class="action-text">Return to this assessment in 4\u20136 weeks. Paternal PPD often peaks between 3 and 6 months postpartum.</span></div>' +
       '<div class="action-item"><span class="action-num">03</span><span class="action-text">If ' + his + ' mood or behaviour changes significantly, take the assessment again or speak to a GP.</span></div>' +
       '</div></div>';
-    ctaHTML =
-      '<a href="https://subscribepage.io/W3WGYX" class="cta-primary">Download Free Guide: The 7 Signs &rarr;</a>' +
-      '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/dd7e3029-babe-4365-87ec-953b82d28f16" class="cta-secondary">90-Day Recovery Toolkit &mdash; &pound;97 &rarr;</a>' +
+    ctaHTML = buildToolkitPanel('low') +
+      '<a href="https://subscribepage.io/W3WGYX" class="cta-secondary" style="margin-top:1rem;">Start free — download the 7 Signs guide first &rarr;</a>' +
       '<a href="https://parents2beintl.com" class="cta-secondary">Return to Parents2Be International &rarr;</a>';
 
   /* ── 13–26 ── */
@@ -941,8 +1146,8 @@ function showResults() {
       '<div class="action-item"><span class="action-num">02</span><span class="action-text">The free 7 Signs guide explains what is happening biologically and gives ' + him + ' language to describe it to a clinician. Enter your email below and we will send it immediately.</span></div>' +
       '<div class="action-item"><span class="action-num">03</span><span class="action-text">If ' + hes + ' not ready for the GP yet, read the guide tonight. Then share it with one person ' + (he === 'you' ? 'you trust' : 'he trusts') + '.</span></div>' +
       '</div></div>';
-    ctaHTML =
-      '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/dd7e3029-babe-4365-87ec-953b82d28f16" class="cta-primary">90-Day Paternal PPD Recovery Toolkit &mdash; &pound;97 &rarr;</a>' +
+    ctaHTML = buildToolkitPanel('mid') +
+      '<a href="https://subscribepage.io/W3WGYX" class="cta-secondary" style="margin-top:1rem;">Not ready yet — start with the free 7 Signs guide &rarr;</a>' +
       '<a href="https://parents2beintl.com" class="cta-secondary">Return to Parents2Be International &rarr;</a>';
 
   /* ── 27–39 ── */
@@ -966,9 +1171,8 @@ function showResults() {
       '<div class="action-item"><span class="action-num">03</span><span class="action-text">Enter your email below and we will send the free 7 Signs guide immediately — it confirms you are not alone and gives language to describe this to a clinician.</span></div>' +
       '<div class="action-item"><span class="action-num">04</span><span class="action-text">If alcohol or substances are part of the picture, tell the GP. This is clinical information, not a confession.</span></div>' +
       '</div></div>';
-    ctaHTML =
-      '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/b91d62b2-f492-4003-b9db-523506fa6e90" class="cta-primary">90-Day Recovery Toolkit &mdash; &pound;117 (Print + Digital) &rarr;</a>' +
-      '<a href="https://parents2beintl.lemonsqueezy.com/checkout/buy/dd7e3029-babe-4365-87ec-953b82d28f16" class="cta-secondary">Digital Only &mdash; &pound;97 &rarr;</a>' +
+    ctaHTML = buildToolkitPanel('high') +
+      '<a href="https://subscribepage.io/W3WGYX" class="cta-secondary" style="margin-top:1rem;">Start with the free 7 Signs guide first &rarr;</a>' +
       '<a href="https://parents2beintl.com" class="cta-secondary">Return to Parents2Be International &rarr;</a>';
   }
 
