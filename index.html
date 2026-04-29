@@ -781,7 +781,7 @@
     <div class="brand-line" aria-hidden="true">Parents2Be International</div>
     <h1>Is He Experiencing<br>Paternal Postpartum<br><em>Depression?</em></h1>
     <p class="body-text">
-      1 in 10 new fathers experience postnatal depression. Over 80% go undiagnosed —
+      1 in 10 new fathers experience postnatal depression. Over 80% go undiagnosed -
       not because it is rare, but because nobody checks.<br><br>
       This assessment uses the <strong style="color:#F5F5F5">Gotland Male Depression Scale</strong>,
       a clinically validated instrument specifically designed to detect depression in men,
@@ -916,17 +916,17 @@ var resultTotal = 0;
    QUESTIONS
 ═══════════════════════════ */
 var QUESTIONS = [
-  { f: "I have a lower stress threshold than usual — I feel more stressed out than normal.", p: "He seems to have a lower stress threshold than usual — he appears more stressed out than normal." },
+  { f: "I have a lower stress threshold than usual - I feel more stressed out than normal.", p: "He seems to have a lower stress threshold than usual - he appears more stressed out than normal." },
   { f: "I have been more aggressive, reactive, and I find it harder to control myself.", p: "He has been more aggressive, outward-reacting, and appears to have difficulty keeping himself in control." },
   { f: "I have a feeling of being burned out and empty inside.", p: "He seems to have a feeling of being burned out and empty inside." },
   { f: "I have been experiencing a constant, inexplicable tiredness.", p: "He has been experiencing what seems like a constant, inexplicable tiredness." },
   { f: "I have been more irritable, restless, and frustrated than usual.", p: "He has been more irritable, restless, and frustrated than usual." },
   { f: "I am finding it difficult to make ordinary, everyday decisions.", p: "He seems to have difficulty making ordinary, everyday decisions." },
-  { f: "I have had sleep problems — sleeping too much or too little, restlessly, difficulty falling asleep, or waking too early.", p: "He has had sleep problems — sleeping too much or too little, restlessly, difficulty falling asleep, or waking too early." },
+  { f: "I have had sleep problems - sleeping too much or too little, restlessly, difficulty falling asleep, or waking too early.", p: "He has had sleep problems - sleeping too much or too little, restlessly, difficulty falling asleep, or waking too early." },
   { f: "In the morning especially, I have a feeling of disquiet, anxiety, or uneasiness.", p: "In the morning especially, he seems to have a feeling of disquiet, anxiety, or uneasiness." },
-  { f: "I have been over-consuming alcohol or using something to achieve a calming effect — or being hyperactive, overworking, exercising excessively, or significantly under or overeating.", p: "He has been over-consuming alcohol or using something to achieve a calming effect — or being hyperactive, overworking, exercising excessively, or significantly under or overeating." },
-  { f: "I feel my behaviour has changed in ways that neither I nor others can fully recognise — I feel difficult to be around.", p: "His behaviour has changed in ways that neither he nor others can recognise — he seems difficult to deal with." },
-  { f: "I have felt gloomy, negative, or as though everything looks bleak and hopeless.", p: "He has seemed gloomy, negative, or characterised by hopelessness — as though everything looks bleak." },
+  { f: "I have been over-consuming alcohol or using something to achieve a calming effect or being hyperactive, overworking, exercising excessively, or significantly under or overeating.", p: "He has been over-consuming alcohol or using something to achieve a calming effect or being hyperactive, overworking, exercising excessively, or significantly under or overeating." },
+  { f: "I feel my behaviour has changed in ways that neither I nor others can fully recognise, I feel difficult to be around.", p: "His behaviour has changed in ways that neither he nor others can recognise, he seems difficult to deal with." },
+  { f: "I have felt gloomy, negative, or as though everything looks bleak and hopeless.", p: "He has seemed gloomy, negative, or characterised by hopelessness, as though everything looks bleak." },
   { f: "I have noticed in myself a tendency toward self-pity, complaining, or feeling pathetic.", p: "He has shown a tendency toward self-pity, complaining, or seeming unusually low or pathetic." },
   { f: "In my biological family, is there any history of depression, low moods, anxiety, suicide attempts, risk-taking behaviour or substance misuse?", p: "In his biological family, is there any history of depression, low moods, anxiety, suicide attempts, risk-taking behaviour or substance misuse?" }
 ];
@@ -1031,9 +1031,9 @@ function prevQ() {
 ═══════════════════════════ */
 function buildToolkitPanel(band) {
   var introText = {
-    low:  'This toolkit is not a crisis resource — it is a <strong>structured framework</strong> for fathers and partners who want to understand what is happening and get ahead of it before it escalates.',
-    mid:  'This toolkit is built specifically for this score range. It gives <strong>structured support for the next 90 days</strong> — not generic mental health content, but a framework written for paternal PPD.',
-    high: 'This toolkit was built for exactly this score. It does not replace your GP. It works alongside clinical support — giving <strong>a structured daily framework</strong> for the 90 days ahead.'
+    low:  'This toolkit is not a crisis resource - it is a <strong>structured framework</strong> for fathers and partners who want to understand what is happening and get ahead of it before it escalates.',
+    mid:  'This toolkit is built specifically for this score range. It gives <strong>structured support for the next 90 days</strong> - not generic mental health content, but a framework written for paternal PPD.',
+    high: 'This toolkit was built for exactly this score. It does not replace your GP. It works alongside clinical support - giving <strong>a structured daily framework</strong> for the 90 days ahead.'
   }[band];
 
   return '' +
@@ -1122,7 +1122,7 @@ function showResults() {
       '<p>Symptoms can emerge or worsen across the first 12 months postpartum. It is worth returning to this assessment in 4\u20136 weeks, or sooner if things change.</p>' +
       '</div></div>' +
       '<div class="result-block"><div class="result-block-title">WHAT TO DO NOW</div><div class="action-list">' +
-      '<div class="action-item"><span class="action-num">01</span><span class="action-text">Download the free 7 Signs guide — understand what to watch for even when things seem okay right now.</span></div>' +
+      '<div class="action-item"><span class="action-num">01</span><span class="action-text">Download the free 7 Signs guide - understand what to watch for even when things seem okay right now.</span></div>' +
       '<div class="action-item"><span class="action-num">02</span><span class="action-text">Return to this assessment in 4\u20136 weeks. Paternal PPD often peaks between 3 and 6 months postpartum.</span></div>' +
       '<div class="action-item"><span class="action-num">03</span><span class="action-text">If ' + his + ' mood or behaviour changes significantly, take the assessment again or speak to a GP.</span></div>' +
       '</div></div>';
@@ -1186,7 +1186,7 @@ function showResults() {
   // Partner-specific email label
   if (whoIs === 'partner') {
     document.getElementById('email-capture-desc').innerHTML =
-      'The <strong>7 Signs of Paternal PPD</strong> guide is written for partners — it explains what you may be seeing and how to talk to him about it. Enter your email and we will send it now.';
+      'The <strong>7 Signs of Paternal PPD</strong> guide is written for partners - it explains what you may be seeing and how to talk to him about it. Enter your email and we will send it now.';
   }
 
   document.getElementById('progress-fill').style.width = '100%';
